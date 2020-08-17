@@ -75,6 +75,17 @@ CREATE TABLE `tbl_member` (
 
 
 
+* MySQL 설치
+1) root 계정 설정 (3306포트)
+2) WorkBench 활용 => root 계정 연결 => 새로운 스키마 추가
+3) 왼쪽 하단에 SCHEMAS => Create Schema => 이름 설정 (문자열 UTF-8 설정)
+4) 사용자 계정 생성 및 권한 부여
+- User and Pri~ 클릭 Add acount 클릭 후 사용할 이름과 비밀번호 입력 => 권한주기 위해 Schema Privilegs에서 add Entry 클릭 후 특정 스키마 선택 => select all 누르고 apply
+5) 새로 생성된 계정으로 Connection 추가하기
+
+
+
+
 
 
 
