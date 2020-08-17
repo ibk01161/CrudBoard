@@ -23,8 +23,15 @@ clone : 다운로드
 * Staging Area : 커밋을 수행할 파일들이 올라가는 영역(깃 폴더 안에)
 * Git Directory : 깃 폴더, Git 프로젝트의 메타 데이터와 데이터 정보가 저장되는 디렉토리 (ex C:\git\Git_test)
 
-
-
+# Git에 프로젝트 올리기
+1) 프로젝트에서 Team - share project 누르고 Use or create 체크 후 폴더 클릭 후 Create repos 클릭 후 finish
+2) 원격 repos와 연결
+- Git repos로 가서 create remote 클릭 후 URI 설정(git repos url 설정) 후 save
+3) Commit and Push 하기 전에 원격 repos를 update(Fetch)받아야함
+- remote - Configure Fetch - Advanced - source ref : master - 자동으로 작성 - Add Spec 클릭 - finish - Save and Fetch (원격 repos에서 파일들을 받아옴)
+4) 원격 repos와 로컬 repos와 merge
+- Branch - master 우클릭 - Merge - remote 와 merge
+5) Commit and Push하기 
 
 
 
