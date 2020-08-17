@@ -1,0 +1,49 @@
+* Git cmd 설치
+
+# 명령어
+- git config --global user.name [name] : git name 환경설정
+- git config --global user.email [email] : git email 환경설정
+
+# 로컬 폴더와 git url 연동
+- 폴더 경로(로컬 repository)로 이동
+- git clone https://github.com/ibk01161/Git_test.git(원격 repository)
+clone : 다운로드 
+=> 저 url에 있는 소스를 다운로드 받는다.
+
+원격 repository 경로 이동 후 
+- git add . or git add [filename] => file 추가
+- git commit -m "commit mesage" => 커밋 메세지 작성
+- git push => 원격 repos로 push
+
+# 파일 수정 후
+- git status : 상태
+
+# git 구성요소
+* working Directory : 작업할 파일이 있는 디렉토리
+* Staging Area : 커밋을 수행할 파일들이 올라가는 영역(깃 폴더 안에)
+* Git Directory : 깃 폴더, Git 프로젝트의 메타 데이터와 데이터 정보가 저장되는 디렉토리 (ex C:\git\Git_test)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
