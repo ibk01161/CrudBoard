@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.test.mapper.ReplyMapper">
+
+	<select id="list" resultType="ReplyVO">
+		select * 
+		from tbl_reply
+		where bno = #{bno}
+		order by rno desc
+	</select>
+	
+	<insert id="create">
+		insert into tbl_reply (bno, replytext, replyer)
+		values (#{bno}, #{replytext}, #{replyer})
+	</insert>
+	
+	<update id="update">
+		update tbl_reply
+		set replytext = #{replytext}, updatedate = now()
+		where rno = #{rno}
+	</update>
+	
+	<delete id="delete">
+		delete
+		from tbl_reply
+		where rno = #{rno}
+	</delete>
+	
+	<!-- 댓글 페이징 처리 -->
+	<select id="listPage" resultType="ReplyVO">
+		select *
+		from tbl_reply
+		where bno = #{bno}
+		order by rno desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
+	</select>
+	
+	<select id="count" resultType="int">
+		select count(bno)
+		from tbl_reply
+		where bno = #{bno}
+	</select>
+	
+	<!-- 댓글 삭제시 게시물 번호 알아내는 메소드 -->
+	<select id="getBno" resultType="int">
+		select bno
+		from tbl_reply
+		where rno = #{rno}
+	</select>
+</mapper>
