@@ -102,7 +102,7 @@ $('.fileDrop').on('drop', function(event){
 	formData.append('file',file);
 	
 	$.ajax({
-		url: '/uploadAjax',
+		url: '${pageContext.request.contextPath}/uploadAjax',
 		data: formData,
 		dataType: 'text',
 		processData: false,

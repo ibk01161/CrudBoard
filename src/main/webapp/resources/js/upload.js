@@ -9,17 +9,17 @@ function getFileInfo(fullName) {
 	var fileLink;
 	
 	if(checkImageType(fullName)) {
-		imgsrc = "/displayFile?fileName="+fullName;
+		imgsrc = "/crud/displayFile?fileName="+fullName;
 		fileLink = fullName.substr(14);
 		
 		var front = fullName.substr(0,12);	// /년/월/일/
 		var end = fullName.substr(14);
 		
-		getLink = "/displayFiile?fileName="+front + end;
+		getLink = "/crud/displayFiile?fileName="+front + end;
 	} else {
 		imgsrc = "../resources/dist/img/file.png";
 		fileLink = fullName.substr(12);
-		getLink = "/displayFile?fileName="+fullName;
+		getLink = "/crud/displayFile?fileName="+fullName;
 	}
 	fileName = fileLink.substr(fileLink.indexOf("_") + 1);
 	
