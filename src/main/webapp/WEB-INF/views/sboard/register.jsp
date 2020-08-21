@@ -130,5 +130,5 @@ $('#registerForm').submit(function(event){
 	that.get(0).submit();
 });
 </script>
-
+<!-- commit test  -->
 <%@include file="../include/footer.jsp"%>
