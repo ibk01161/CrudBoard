@@ -115,7 +115,7 @@ $('.fileDrop').on('drop', function(event){
 		}
 	});
 });
-/* test */
+/* test1 */
 $('#registerForm').submit(function(event){
 	event.preventDefault();
 	
