@@ -33,6 +33,17 @@
 		</beans:constructor-arg>
 	</beans:bean>
 	
+	<!-- Interceptor 설정 -->
+	
+	<beans:bean id="sampleInterceptor" class="net.test.interceptor.SampleInterceptor"></beans:bean>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/**"/>
+			<beans:ref bean="sampleInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
 	
 	
 </beans:beans>

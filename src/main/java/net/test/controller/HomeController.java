@@ -31,4 +31,23 @@ public class HomeController {
 		
 	}
 	
+	@GetMapping("/doA")
+	public String doA(Locale locale, Model model) {
+		
+		System.out.println("doA.....................");
+		
+		return "interceptor_test";
+	}
+	
+	@GetMapping("/doB")
+	public String doB(Locale locale, Model model) {
+		
+		System.out.println("doB.....................");
+		
+		model.addAttribute("result","DDB RESULT");
+		
+		return "interceptor_test";
+	}
+	
+	
 }
