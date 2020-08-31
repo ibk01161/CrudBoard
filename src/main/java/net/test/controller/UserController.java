@@ -4,6 +4,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,6 +15,7 @@ import net.test.domain.UserVO;
 import net.test.dto.LoginDTO;
 import net.test.service.UserService;
 
+@Controller
 @RequestMapping("/user")
 public class UserController {
 	
