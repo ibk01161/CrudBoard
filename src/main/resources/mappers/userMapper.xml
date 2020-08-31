@@ -9,3 +9,5 @@
 		from tbl_user
 		where uid = #{uid} and upw = #{upw}
 	</select>
+	
+</mapper>
