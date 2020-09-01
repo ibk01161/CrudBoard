@@ -8,7 +8,7 @@
 </head>
 <body>
 	<script>
-		self.location = "${pageContext.request.contextPath}/sborad/list";
+		self.location = "${pageContext.request.contextPath}/sboard/list";
 	</script>
 </body>
 </html>
