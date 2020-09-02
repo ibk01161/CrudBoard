@@ -35,7 +35,7 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3 class="box-title">READ BOARD</h3>
+					<h3 class="box-title">READ BOARD_( ${login.uid } 님 )</h3>
 				</div>
 				<!-- /.box-header -->
 
@@ -71,8 +71,11 @@
 <ul class="mailbox-attachments clearfix uploadedList"></ul>
 
 <div class="box-footer">
+
+<c:if test="${login.uid == boardVO.writer}">
 	<button type="submit" class="btn btn-warning" id='Modbtn'>Modify</button>
 	<button type="submit" class="btn btn-danger" id='Rembtn'>REMOVE</button>
+</c:if>
 	<button type="submit" class="btn btn-primary goListBtn">GO LIST </button>
 </div>
 
@@ -90,17 +93,23 @@
 				<div class="box-header">
 					<h3 class="box-title">ADD NEW REPLY</h3>
 				</div>
+				<c:if test="${not empty login }">
 				<div class="box-body">
 					<label for="exampleInputEmail1">Writer</label> 
-					<input class="form-control" type="text" placeholder="USER ID" id="newReplyWriter">
+					<input class="form-control" type="text" value="${login.uid }" id="newReplyWriter" readonly>
 					<label for="exampleInputEmail1">Reply Text</label>
 					<input class="form-control" type="text" placeholder="REPLY TEXT" id="newReplyText">
 
 				</div>
+				
 				<!-- /.box-body -->
 				<div class="box-footer">
 					<button type="submit" class="btn btn-primary" id="replyAddBtn">댓글 추가</button>
 				</div>
+				</c:if>
+				<c:if test="${empty login }">
+					<div class="box-body"><a href="javascript:goLogin();">Login please</a></div>
+				</c:if>
 			</div>
 			<!-- The time line -->
 			<ul class="timeline">
@@ -422,6 +431,10 @@ $(document).ready(function(){
 	});
 	
 });
+
+function goLogin() {
+	self.location="/crud/user/login";
+}
 
 </script>
 

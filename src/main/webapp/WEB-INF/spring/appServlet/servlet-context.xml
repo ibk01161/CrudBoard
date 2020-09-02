@@ -39,6 +39,9 @@
 	
 	<beans:bean id="loginInterceptor" class="net.test.interceptor.LoginInterceptor"></beans:bean>
 	
+	
+	<beans:bean id="authInterceptor" class="net.test.interceptor.AuthInterceptor"></beans:bean>
+	
 	<interceptors>
 		<interceptor>
 			<mapping path="/doA"/>
@@ -52,8 +55,15 @@
 			<mapping path="/user/loginPost"/>
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
+		
+		
+		<interceptor>
+			<mapping path="/sboard/register"/>
+			<mapping path="/sboard/modifyPage"/>
+			<mapping path="/sboard/removePage"/>
+			<beans:ref bean="authInterceptor"/>
+		</interceptor>
 	</interceptors>
-	
 	
 	
 </beans:beans>

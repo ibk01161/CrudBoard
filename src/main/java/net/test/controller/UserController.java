@@ -42,7 +42,7 @@ public class UserController {
 			return;
 		}
 		
-		model.addAttribute("UserVO", vo);
+		model.addAttribute("userVO", vo);
 	}
 
 }

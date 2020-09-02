@@ -21,6 +21,7 @@
 					<h3 class="box-title"><a href="${app}/board/listAll">리스트</a></h3>
 					<h3 class="box-title"><a href="${app}/board/listPage">페이징 리스트</a></h3>
 					<h3 class="box-title"><a href="${app}/sboard/list">검색 기능 리스트</a></h3>
+					<h3 class="box-title"><a href="${app}/user/login">로그인</a></h3>
 				</div>
 			</div>
 		</div>
