@@ -175,7 +175,9 @@
 <h4 class="timeline-header"><strong>-{{replyer}}</strong> </h4>
 <div class="timeline-body">{{replytext}} </div>
 	<div class="timeline-footer">
+	{{#eqReplyer replyer}}
 		<a class="btn btn-primary btn-xs" data-toggle="modal" data-target="#modifyModal">댓글 수정</a>
+	{{/eqReplyer}}
     </div>
 </div>			
 </li>
@@ -183,6 +185,16 @@
 </script>
 
 <script>
+	/* 댓글 수정 버튼 visibility */
+ 	Handlebars.registerHelper("eqReplyer",function(replyer,block) {
+		var accum = '';
+		if (replyer == '${login.uid}') {
+			accum += block.fn();
+		}
+		return accum;
+	});
+
+
 	Handlebars.registerHelper("prettifyDate", function(timeValue) {
 		var dateObj = new Date(timeValue);
 		var year = dateObj.getFullYear();
