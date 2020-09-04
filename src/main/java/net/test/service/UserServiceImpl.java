@@ -1,5 +1,7 @@
 package net.test.service;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserVO login(LoginDTO dto) throws Exception {
 		return dao.login(dto);
+	}
+
+	@Override
+	public void keepLogin(String uid, String sessionId, Date next) throws Exception {
+		dao.keepLogin(uid, sessionId, next);
+	}
+
+	@Override
+	public UserVO checkUserWithSessionKey(String value) throws Exception {
+		return dao.checkUserWithSessionKey(value);
 	}
 	
 	

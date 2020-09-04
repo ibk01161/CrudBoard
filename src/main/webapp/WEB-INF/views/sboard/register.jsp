@@ -58,6 +58,7 @@ margin: auto;
 		<ul class='mailbox-attachments clearfix uploadedList'>
 		</ul>
 		
+		<button type="button" class="btn btn-primary" onclick="location.href='/crud/sboard/list'">GO LIST</button>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</div>
 </form>
@@ -129,6 +130,7 @@ $('#registerForm').submit(function(event){
 	that.append(str);
 	that.get(0).submit();
 });
+
 </script>
 
 <%@include file="../include/footer.jsp"%>

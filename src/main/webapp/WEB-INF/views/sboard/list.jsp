@@ -43,6 +43,7 @@
 					<input type="text" name="keyword" id="keywordInput" value="${cri.keyword}">
 					<button id='searchBtn'>검색</button>
 					<button id='newBtn'>New Board</button>
+					<button id='logoutBtn'>logout</button>
 				</div>
 			</div>
 			<div class="box">
@@ -182,6 +183,10 @@
 				$('#newBtn').on("click", function(evt) {
 					self.location = "register";
 				});
+				
+				$('#logoutBtn').on('click', function(evt) {
+					self.location = "${pageContext.request.contextPath}/user/logout";
+				})
 			});
 	
 </script>

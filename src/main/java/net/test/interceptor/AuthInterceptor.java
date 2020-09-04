@@ -1,5 +1,6 @@
 package net.test.interceptor;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -7,7 +8,9 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.util.WebUtils;
 
+import net.test.domain.UserVO;
 import net.test.service.UserService;
 
 public class AuthInterceptor extends HandlerInterceptorAdapter {
@@ -29,6 +32,25 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			logger.info("current user is not login...........");
 			
 			saveDest(request);
+			
+			// 쿠키값 추출
+			Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
+			
+			// 쿠키 중에 loginCookie가 존재할 때, 과거에 보관한 쿠키가 있다면 UserService 객체를 이용해 사용자의 정보가 존재하는지 확인
+			if(loginCookie != null) {
+				UserVO userVO = service.checkUserWithSessionKey(loginCookie.getValue());
+				
+				logger.info("UserVO : " + userVO);
+				logger.info("====== loginCookie :  "+ loginCookie.getValue() );
+				
+				// 사용자 정보가 존재한다면 HttpSession에 다시 사용자의 정보를 넣어줌
+				if (userVO != null) {
+					logger.info("UserVO : " + userVO);
+					logger.info("====== loginCookie :  "+ loginCookie.getValue() );
+					session.setAttribute("login", userVO);					
+					return true;
+				}
+			}
 			
 			response.sendRedirect("/crud/user/login");
 			return false;
