@@ -15,7 +15,7 @@ function getFileInfo(fullName) {
 		var front = fullName.substr(0,12);	// /년/월/일/
 		var end = fullName.substr(14);
 		
-		getLink = "/crud/displayFiile?fileName="+front + end;
+		getLink = "/crud/displayFile?fileName="+front + end;
 	} else {
 		imgsrc = "../resources/dist/img/file.png";
 		fileLink = fullName.substr(12);
