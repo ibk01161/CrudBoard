@@ -3,6 +3,7 @@ package net.test.controller;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import net.test.domain.BoardVO;
 import net.test.domain.PageMaker;
 import net.test.domain.SearchCriteria;
+import net.test.domain.UserVO;
 import net.test.service.BoardService;
 
 @Controller
@@ -32,7 +34,8 @@ public class SearchBoardController {
 	
 	// 검색 기능
 	@GetMapping("/list")
-	public void listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+	public void listPage(@ModelAttribute("cri") SearchCriteria cri, Model model, HttpSession session) throws Exception {
+		UserVO userVO = (UserVO) session.getAttribute("login");
 		logger.info(cri.toString());
 		
 		//model.addAttribute("list",service.listCriteria(cri));
@@ -44,6 +47,7 @@ public class SearchBoardController {
 		pageMaker.setTotalCount(service.listSearchCount(cri));
 		
 		model.addAttribute("pageMaker",pageMaker);
+		model.addAttribute("userVO", userVO);
 	}
 	
 	// 조회 처리
